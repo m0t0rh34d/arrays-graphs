@@ -9,8 +9,7 @@ import generRandArrAction from "./../store/actions/generRandArrAction";
 const ArrayGenerator = () => {
   const dispatch = useDispatch();
 
-  const arrFromStore = useSelector(arrSelector);
-  const arrFetched = arrFromStore.arr;
+  const arrFetched = useSelector(arrSelector);
 
   const [users, setUsers] = useState([]);
 
@@ -53,9 +52,17 @@ const ArrayGenerator = () => {
       : arr.slice();
   }
 
+
+ 
+
+
   const handleRandArr = () => {
     dispatch(generRandArrAction());
+  console.log("function handleRandArr executed, value is: ", array, "arrFrom store return reducer default ", arrFetched)
+
     setArray(arrFetched);
+  console.log("function handleRandArr executed, value is: ", array, "arrFrom store return reducer default ", arrFetched)
+
   };
 
   const handleFlatten = () => {

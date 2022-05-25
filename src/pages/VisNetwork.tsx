@@ -47,4 +47,13 @@ export default VisNetwork;
 
     setClicked(true);
     setArray(newArr);
-  }; */
+  }; 
+  
+  
+  
+   //create arry on render
+  useEffect(() => {
+    dispatch(generRandArrAction())
+    console.log('arrFetched', arrFetched)
+  }, [])
+*/

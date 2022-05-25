@@ -50,7 +50,7 @@ const RelatedNetwork = () => {
       new Network(container.current, { nodes, edges }, options);
   }, [container, nodes, edges]);
 
-  return <><div ref={container} style={{ height: '500px', width: '800px' }} /><p>{arrFromStore.arr}</p></>;
+  return <><div ref={container} style={{ height: '500px', width: '800px' }} /><p>{arrFromStore}</p></>;
 };
 
 export default RelatedNetwork;

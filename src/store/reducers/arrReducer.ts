@@ -7,13 +7,11 @@ const arrReducer = (state = initialState, action: { type: any; payload: any }) =
     switch (action.type) {
         case 'GENER_ARR':
             return {
-                ...state,
-                arr: [...state.arr, ...action.payload]
+                arr: [...action.payload]
             }
         case 'SAVE_ARR':
             return {
-                ...state,
-                arr: [...state.arr, ...action.payload]
+                arr: [...state.arr, action.payload]
             }
         case 'PUSH_RAND':
             return {
@@ -21,7 +19,7 @@ const arrReducer = (state = initialState, action: { type: any; payload: any }) =
                 arr: [...state.arr, ...action.payload]
             }
         default: 
-            return state    
+            return {arr: [1, 2, 3]   } 
             
     }
 }

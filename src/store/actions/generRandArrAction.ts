@@ -11,6 +11,8 @@ const generRandArr = (): number[] | number[][] => {
   return newArr;
 };
 
+
+
 const generRandArrAction = () => {
   return {
     type: "GENER_ARR",
