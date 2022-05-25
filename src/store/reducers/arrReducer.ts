@@ -16,10 +16,10 @@ const arrReducer = (state = initialState, action: { type: any; payload: any }) =
         case 'PUSH_RAND':
             return {
                 ...state,
-                arr: [...state.arr, ...action.payload]
+                arr: [...state.arr, action.payload]
             }
         default: 
-            return {arr: [1, 2, 3]   } 
+            return {arr: ["EMPTY"]   } 
             
     }
 }

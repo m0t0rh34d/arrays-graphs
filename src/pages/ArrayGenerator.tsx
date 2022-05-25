@@ -16,8 +16,8 @@ const ArrayGenerator = () => {
   const [array, setArray] = useState([0]);
   const [clicked, setClicked] = useState(false);
 
-  const strArray = array.map(
-    (item, index, array) => {
+  const strArray = arrFetched.map(
+    (item: string, index: number, array: string | any[]) => {
       const lastItem: boolean = array.length - 1 === index;
 
       if (Array.isArray(item)) {
@@ -30,7 +30,7 @@ const ArrayGenerator = () => {
     }
   );
 
-  const renderList = array.map(
+  const renderList = arrFetched.map(
     (item: {} | null | undefined, index: any, arr: any) => {
       if (Array.isArray(item))
         return (
