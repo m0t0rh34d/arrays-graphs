@@ -16,7 +16,7 @@ const ArrayGenerator = () => {
   const [array, setArray] = useState([0]);
   const [clicked, setClicked] = useState(false);
 
-  const strArray = arrFetched.map(
+  const fetchedArr = arrFetched.map(
     (item: string, index: number, array: string | any[]) => {
       const lastItem: boolean = array.length - 1 === index;
 
@@ -30,7 +30,7 @@ const ArrayGenerator = () => {
     }
   );
 
-  const renderList = arrFetched.map(
+  const stateArr = array.map(
     (item: {} | null | undefined, index: any, arr: any) => {
       if (Array.isArray(item))
         return (
@@ -51,34 +51,23 @@ const ArrayGenerator = () => {
         )
       : arr.slice();
   }
-
-
- 
-
-
   const handleRandArr = () => {
     dispatch(generRandArrAction());
-  console.log("function handleRandArr executed, value is: ", array, "arrFrom store return reducer default ", arrFetched)
-
-    setArray(arrFetched);
-  console.log("function handleRandArr executed, value is: ", array, "arrFrom store return reducer default ", arrFetched)
-
   };
 
   const handleFlatten = () => {
-    const flattened: any = flatDeep(array, Infinity);
+    const flattened: any = flatDeep(arrFetched, Infinity);
+        dispatch(saveArrAction(flattened));
+
     setArray(flattened);
   };
 
   const handleSave = () => {
-    console.log(array)
-    console.log([...array])
-    dispatch(saveArrAction([...array]));
+    dispatch(saveArrAction(arrFetched));
   };
 
   const handleAddRand = () => {
     dispatch(pushRandomAction());
-    setArray(arrFetched);
     setClicked(true);
   };
 
@@ -88,13 +77,13 @@ const ArrayGenerator = () => {
 
   return (
     <div className="App">
-      <h1> {strArray} </h1>
-      <h1> RENDER LIST {renderList} </h1>
+      <h1> from store: {fetchedArr} </h1>
+      <h1> RENDER LIST (FROM useState) {stateArr} </h1>
       <button onClick={handleRandArr}>Generate array</button>
       <button onClick={handleFlatten}>Flatten array</button>
       <button onClick={handleSave}>Save array</button>
       <button onClick={handleAddRand}>Push add</button>
-      {clicked ? <p>{renderList}</p> : <p>Havent' yet</p>}
+      {clicked ? <p>{stateArr}</p> : <p>Havent' yet</p>}
     </div>
   );
 };

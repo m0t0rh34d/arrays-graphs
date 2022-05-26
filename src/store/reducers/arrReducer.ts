@@ -11,7 +11,7 @@ const arrReducer = (state = initialState, action: { type: any; payload: any }) =
             }
         case 'SAVE_ARR':
             return {
-                arr: [...state.arr, action.payload]
+                arr: [...action.payload]
             }
         case 'PUSH_RAND':
             return {

@@ -5,7 +5,6 @@ import { Network } from 'vis-network/standalone';
 import { useDispatch, useSelector } from 'react-redux';
 import arrSelector from '../store/selectors/arrSelector';
 
-import store from '../store/store';
 
 
 
@@ -13,33 +12,35 @@ const RelatedNetwork = () => {
   const arrFromStore = useSelector(arrSelector)
 
 
+  const nodesFromArr = (arr: any) => {
+    const node = [];
+    for (let i = 0; i < arr.length; i++) {
+      node.push ({ id: arr[i], label: `Node ${arr[i]}`})
+    }
+    return node;
+  }
 
-
-  console.log(store.getState());
-  console.log(arrFromStore);
-
-
-
+  const nodes = nodesFromArr(arrFromStore);
 
 
 
   
   const container = useRef(null);
 
-  const nodes = [
+  const nodess = [
     { id: 1, label: 'Node 1' },
     { id: 2, label: 'Node 2' },
     { id: 3, label: 'Node 3' },
     { id: 4, label: 'Node 4' },
     { id: 5, label: 'Node 5' }
   ];
+  console.log(nodes);
 
   const edges = [
-    { from: 1, to: 3 },
     { from: 1, to: 2 },
     { from: 2, to: 4 },
     { from: 2, to: 5 },
-    { from: 3, to: 3 }
+    { from: 2, to: 3 },
   ];
 
   const options = {};
