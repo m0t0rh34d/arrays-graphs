@@ -22,26 +22,25 @@ const RelatedNetwork = () => {
 
   const nodes = nodesFromArr(arrFromStore);
 
-
-
-  
   const container = useRef(null);
 
-  const nodess = [
-    { id: 1, label: 'Node 1' },
-    { id: 2, label: 'Node 2' },
-    { id: 3, label: 'Node 3' },
-    { id: 4, label: 'Node 4' },
-    { id: 5, label: 'Node 5' }
-  ];
-  console.log(nodes);
 
-  const edges = [
-    { from: 1, to: 2 },
-    { from: 2, to: 4 },
-    { from: 2, to: 5 },
-    { from: 2, to: 3 },
-  ];
+
+  const randomNum = (arr: string | any[]) => {
+    return arr[ Math.floor(Math.random() * arr.length) ]
+  }
+
+  const edgesFromArr = (arr: string | any[]) => {
+    const edge  = [];
+    for (let i = 0; i < arr.length; i++) {
+      edge.push ({ from: randomNum(arr), to: randomNum(arr) })
+    }
+    return edge;
+  }
+
+  const edges = edgesFromArr(arrFromStore)
+
+  
 
   const options = {};
 

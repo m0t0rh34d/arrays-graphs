@@ -57,10 +57,18 @@ const ArrayGenerator = () => {
 
   const handleFlatten = () => {
     const flattened: any = flatDeep(arrFetched, Infinity);
-        dispatch(saveArrAction(flattened));
-
+    dispatch(saveArrAction(flattened));
     setArray(flattened);
   };
+
+  const handleUnique = () => {
+    const unique: any = arrFetched.filter ((item: any, index: any, arr: string | any[]) => {
+      return arr.indexOf(item) === index;
+    })
+    dispatch(saveArrAction(unique));
+
+    setArray(unique)
+  }
 
   const handleSave = () => {
     dispatch(saveArrAction(arrFetched));
@@ -81,6 +89,7 @@ const ArrayGenerator = () => {
       <h1> RENDER LIST (FROM useState) {stateArr} </h1>
       <button onClick={handleRandArr}>Generate array</button>
       <button onClick={handleFlatten}>Flatten array</button>
+      <button onClick={handleUnique}>Unique array</button>
       <button onClick={handleSave}>Save array</button>
       <button onClick={handleAddRand}>Push add</button>
       {clicked ? <p>{stateArr}</p> : <p>Havent' yet</p>}
