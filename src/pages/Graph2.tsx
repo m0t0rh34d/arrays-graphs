@@ -36,9 +36,6 @@ const RelatedNetwork2 = () => {
   }
 
   const edges = edgesFromArr(arrFromStore)
-    // create people.
-    // value corresponds with the age of the person
-    // Instantiate our network object.
     var data = {
       nodes: nodes,
       edges: edges,
@@ -65,15 +62,15 @@ const RelatedNetwork2 = () => {
 
   });
   
-  
+  const dataString = JSON.stringify(data);
 
   return (
     <>
-      <div ref={container} style={{ height: "600px", width: "1500px" }}>
+      <div ref={container} style={{ height: "600px", width: "1500px" }} />
       <form id="conf"></form>
 
       <p>{arrFromStore}</p>
-      </div>
+      <p>{dataString}</p>
     </>
   );
 };
