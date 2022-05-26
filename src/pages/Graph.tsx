@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Network } from 'vis-network/standalone';
 
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import arrSelector from '../store/selectors/arrSelector';
 
 
@@ -42,7 +42,17 @@ const RelatedNetwork = () => {
 
   
 
-  const options = {};
+  const options = {
+    nodes: {
+      shape: "dot",
+      scaling: {
+        customScalingFunction: function (min: any, max: any, total: number, value: number) {
+          return value / total;
+        },
+        min: 5,
+        max: 150,
+      },
+    },};
 
   useEffect(() => {
     const network =
@@ -50,7 +60,7 @@ const RelatedNetwork = () => {
       new Network(container.current, { nodes, edges }, options);
   }, [container, nodes, edges]);
 
-  return <><div ref={container} style={{ height: '500px', width: '800px' }} /><p>{arrFromStore}</p></>;
+  return <><div ref={container} style={{ height: '600px', width: '1500px' }} /><p>{arrFromStore}</p></>;
 };
 
 export default RelatedNetwork;
