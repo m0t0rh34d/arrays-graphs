@@ -1,9 +1,10 @@
 import { createStore } from "redux";
 import arrReducer from './reducers/arrReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import rootReducer from "./reducers";
 
 
-const store = createStore(arrReducer, composeWithDevTools())
+const store = createStore(rootReducer, composeWithDevTools())
 
 
 export default store

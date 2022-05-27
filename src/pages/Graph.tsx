@@ -11,7 +11,6 @@ import arrSelector from '../store/selectors/arrSelector';
 const RelatedNetwork = () => {
   const arrFromStore = useSelector(arrSelector)
 
-
   const nodesFromArr = (arr: any) => {
     const node = [];
     for (let i = 0; i < arr.length; i++) {

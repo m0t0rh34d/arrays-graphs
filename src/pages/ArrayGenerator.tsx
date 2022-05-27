@@ -86,12 +86,12 @@ const ArrayGenerator = () => {
   return (
     <div className="App">
       <h1> from store: {fetchedArr} </h1>
-      <h1> RENDER LIST (FROM useState) {stateArr} </h1>
       <button onClick={handleRandArr}>Generate array</button>
       <button onClick={handleFlatten}>Flatten array</button>
       <button onClick={handleUnique}>Unique array</button>
       <button onClick={handleSave}>Save array</button>
       <button onClick={handleAddRand}>Push add</button>
+      <h1> RENDER LIST (FROM useState) {stateArr} </h1>
       {clicked ? <p>{stateArr}</p> : <p>Havent' yet</p>}
     </div>
   );

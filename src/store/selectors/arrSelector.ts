@@ -1,5 +1,5 @@
 
 
-const arrSelector = (state: { arr: any; }) => state.arr;
+const arrSelector = (state: { arrReducer: { arr: any; }; }) => state.arrReducer.arr;
 
 export default arrSelector;

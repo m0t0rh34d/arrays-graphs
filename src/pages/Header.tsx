@@ -6,7 +6,7 @@ const Header = () => {
 
   const handleClickHome = () => {
     navigate("/home");
-  };
+  };    
   
   const handleClickArrayGenerator = () => {
     navigate("/arraygenerator");
@@ -20,6 +20,10 @@ const Header = () => {
     navigate("/graph2");
   };
 
+  const handleClickGraph3 = () => {
+    navigate("/graph3")
+  }
+
   return (
     <div>
       <h2> This is the header </h2>
@@ -27,6 +31,7 @@ const Header = () => {
       <button onClick={handleClickArrayGenerator}> ArrayGenerator</button>      
       <button onClick={handleClickGraph}>Graph</button>      
       <button onClick={handleClickGraph2}>Graph2</button>      
+      <button onClick={handleClickGraph3}>Graph3</button>
     </div>
   );
 };
