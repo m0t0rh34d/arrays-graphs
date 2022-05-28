@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 
 const RelatedNetwork2 = () => {
     const arrFromStore = useSelector(arrSelector);
+    console.log(store.getState())
   
     const container = useRef(null);
     const dispatch = useDispatch()
@@ -60,7 +61,6 @@ const RelatedNetwork2 = () => {
     
     
     useEffect(() => {
-      console.log(store.getState())
       // eslint-disable-next-line react-hooks/exhaustive-deps
       const network = 
       container.current &&

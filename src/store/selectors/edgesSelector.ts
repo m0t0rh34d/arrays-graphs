@@ -1,4 +1,4 @@
-const edgesSelector = (state: { objReducer: { edges: any } }) => state.objReducer.edges
+const edgesSelector = (state: any) => state.obj.edges
 
 
 export default edgesSelector

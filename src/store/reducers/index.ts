@@ -5,7 +5,8 @@ import objReducer from './objReducer';
 // //import { combineReducers } from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
-  arrReducer, objReducer
+  arr: arrReducer, 
+  obj: objReducer
 });
 
 export default rootReducer;

@@ -1,5 +1,5 @@
 
-const nodesSelector = (state: { objReducer: { nodes: any } }) => state.objReducer.nodes
+const nodesSelector = (state: { obj: { nodes: any } }) => state.obj.nodes
 
 
 export default nodesSelector 
