@@ -1,5 +1,7 @@
 const initialState = {
-  arr: [1, 2],
+  arr: [1,3,3],
+  nodes: { 1: 1 },
+  edges: {},
 };
 
 const arrReducer = (
@@ -24,7 +26,7 @@ const arrReducer = (
         arr: [...state.arr, action.payload],
       };
     default:
-      return { arr: ["EMPTY"] };
+      return state;
   }
 };
 

@@ -6,14 +6,20 @@ import { useSelector } from "react-redux";
 import arrSelector from "../store/selectors/arrSelector";
 import store from "../store/store";
 import saveGraphObjAction from './../store/actions/saveGraphObjAction';
-import pushRandomAction from './../store/actions/pushRandomAction';
-import testAction from './../store/actions/testAction';
 import { useDispatch } from "react-redux";
+import nodesSelector from "../store/selectors/nodesSelector";
+import edgesSelector from "../store/selectors/edgesSelector";
 
 const RelatedNetwork2 = () => {
     const arrFromStore = useSelector(arrSelector);
-    console.log(store.getState())
+    const nodesFromStore = useSelector(nodesSelector);
+    const edgesFromStore = useSelector(edgesSelector);
+
+    console.log("full store obj", store.getState())
+    console.log("edges from store variable", edgesFromStore)
+    console.log("edges from store variable .test", edgesFromStore.test)
   
+    
     const container = useRef(null);
     const dispatch = useDispatch()
   
@@ -42,12 +48,16 @@ const RelatedNetwork2 = () => {
       return edge;
     }
   
-    const edges = edgesFromArr(arrFromStore)
+    const edges = 
+    edgesFromStore.test === "default" ? edgesFromArr(arrFromStore) : edgesFromStore
       var data = {
         nodes: nodes,
         edges: edges,
       };
       var options = {
+        nodes: {
+          shape: 'dot'
+        },
         layout: {
           hierarchical: {
             direction: "UD",
@@ -57,7 +67,7 @@ const RelatedNetwork2 = () => {
         edges: {
           arrows: "to",
         },
-      };
+      } 
     
     
     useEffect(() => {
@@ -68,7 +78,7 @@ const RelatedNetwork2 = () => {
   
     });
     
-    const dataString = JSON.stringify(data);
+    const dataString = JSON.stringify(nodesFromStore);
 
 
 

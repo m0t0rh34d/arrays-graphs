@@ -1,7 +1,6 @@
 const initialState: any = {
-  arr: [1,3,3],
-  nodes: { 1: 1 },
-  edges: {},
+  nodes: { test: "default" },
+  edges: { test: "default" },
 };
 
 const objReducer = (state = initialState, action: { type: any; payload: any[]; }) => {
@@ -9,7 +8,6 @@ const objReducer = (state = initialState, action: { type: any; payload: any[]; }
     case "SAVE_GRAPH":
       return {
         ...state,
-        arr: [...state.arr],
         nodes:action.payload[0],
         edges:action.payload[1],
       };
@@ -17,7 +15,7 @@ const objReducer = (state = initialState, action: { type: any; payload: any[]; }
       return {
         ...state,
         nodes: { 1: 1 },
-        edges: { 1: 1 },
+        edges: { test: "default" },
       };
   }
 };
