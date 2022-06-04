@@ -15,7 +15,7 @@ const objReducer = (state = initialState, action: { type: any; payload: any[]; }
       return {
         ...state,
         nodes: { 1: 1 },
-        edges: { test: "default" },
+        edges: { test: "default" }, //if no graph structure will return object with "default" value
       };
   }
 };
