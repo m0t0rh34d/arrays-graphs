@@ -14,7 +14,6 @@ import edgesFromArr from "../utils/edgesFromArr";
 
 const RelatedNetwork2 = () => {
   const arrFromStore = useSelector(arrSelector);
-  const nodesFromStore = useSelector(nodesSelector);
   const edgesFromStore = useSelector(edgesSelector);
   /* 
   console.log("full store obj", store.getState());
@@ -26,7 +25,7 @@ const RelatedNetwork2 = () => {
   const container = useRef(null);
   const dispatch = useDispatch();
 
-  const nodes = useMemo (() => nodesFromArr(arrFromStore), [arrFromStore]);
+  const nodes = useMemo(() => nodesFromArr(arrFromStore), [arrFromStore]);
 
   const edges =
     edgesFromStore.test === "default"
@@ -38,15 +37,10 @@ const RelatedNetwork2 = () => {
     edges: edges,
   };
 
-  console.log("compoent lvel")
+  console.log("compoent lvel");
 
   useEffect(() => {
-  console.log("useEffect nodes")
-  
-  },[nodes])
-
-  useEffect(() => {
-  console.log("useEffect nodes/edges")
+    console.log("useEffect nodes/edges");
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const options = {
@@ -76,14 +70,11 @@ const RelatedNetwork2 = () => {
       );
   }, [nodes, edges]);
 
-  useEffect(     () => {
-    console.log("useEffect nodesFromStore")
+  useEffect(() => {
+    console.log("useEffect nodesFromStore");
 
-      setDataString(JSON.stringify(nodesFromStore))
-    },
-
-    [nodesFromStore]
-  );
+    setDataString(JSON.stringify(nodes));
+  }, [nodes]);
 
   const handleSaveObj = () => {
     dispatch(saveGraphObjAction(nodes, edges));
@@ -119,7 +110,7 @@ const RelatedNetwork2 = () => {
 
       <p>{arrFromStore}</p>
 
-      <p>{dataString}</p>
+      <p>Nodes obj{dataString}</p>
     </>
   );
 };
