@@ -21,7 +21,7 @@ function App() {
 
 
       <Routes>
-          <Route path="home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="arraygenerator" element={<ArrayGenerator />} />
           <Route path="graph" element={<Graph />} />
           <Route path="graph2" element={<Graph2 />} />
